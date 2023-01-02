@@ -32,9 +32,31 @@ const getDogPic = async () => {
         console.log('Imagem de cachorro aleatória salva no arquivo');
     } catch (err) {
         console.log(err.message);
+        throw(err);
     }
+    return '2: PRONTO'
 };
-getDogPic();
+
+(async () => {
+    try {
+        console.log('1: Pegando foto de dog');
+        const x = await getDogPic();
+        console.log(x);
+        console.log('3: Já pegou a foto do dog');
+    } catch(err) {
+        console.log('ERROR');
+    }
+})();
+
+/* console.log('1: Pegando foto de dog');
+getDogPic()
+    .then(x => {
+        console.log(x);
+        console.log('3: Já pegou a foto do dog');
+    })
+    .catch(err => {
+        console.log('ERROR');
+    }); */
 
 
 // Construindo Promises
